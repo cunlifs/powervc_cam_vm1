@@ -1,0 +1,144 @@
+{
+  "input_datatypes": [],
+  "output_datatype": "content_template_output",
+  "input_groups": [
+    {
+      "name": "cloud",
+      "label": "Cloud Input Variables"
+    },
+    {
+      "name": "virtualmachine",
+      "label": "Virtual Machine Input Variables"
+    },
+    {
+      "name": "ssh_keys",
+      "label": "SSH Keys"
+    },
+    {
+      "name": "environment",
+      "label": "Environment"
+    }
+  ],
+  "output_groups": [
+    {
+      "name": "content_template_output",
+      "label": "Outputs"
+    }
+  ],
+  "template_input_params": [
+    {
+      "name": "openstack_vmname",
+      "type": "string",
+      "description": "The VM Name to be used for deploy operations.",
+      "hidden": false,
+      "label": "Openstack VM Name",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "virtualmachine"
+    },
+    {
+      "name": "number_of_instances",
+      "type": "string",
+      "description": "The number of instances to provision.",
+      "hidden": false,
+      "label": "Number of Instances to deploy",
+      "secured": false,
+      "required": true,
+      "immutable": true,
+      "default": "1",
+      "group_name": "virtualmachine"
+    },
+    {
+      "name": "openstack_flavor_name",
+      "type": "string",
+      "description": "The name of the flavor to be used for deploy operations.",
+      "hidden": false,
+      "label": "Openstack Flavor name",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "default": "tiny",
+      "group_name": "virtualmachine"
+    },
+    {
+      "name": "openstack_network_name",
+      "type": "string",
+      "description": "The name of the network to be used for deploy operations.",
+      "hidden": false,
+      "label": "Openstack Network Name",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "default": "VLAN 156",
+      "group_name": "virtualmachine"
+    },
+    {
+      "name": "openstack_IP_address",
+      "type": "string",
+      "description": "Optional Specific IPV4 Address to use for deployed VM",
+      "hidden": false,
+      "label": "Openstack Network IP Address",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "virtualmachine"
+    },
+    {
+      "name": "openstack_image_name",
+      "type": "string",
+      "description": "The name of the image to be used for deploy operations.",
+      "hidden": false,
+      "label": "Openstack Image name",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "default": "AIX 7.2 Base",
+      "group_name": "virtualmachine"
+    },
+    {
+      "name": "image_id_username",
+      "type": "string",
+      "description": "The username to SSH into image ID",
+      "hidden": false,
+      "label": "Openstack Image Username",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "default": "root",
+      "group_name": "virtualmachine"
+    },
+    {
+      "name": "image_id_password",
+      "type": "password",
+      "description": "The password of the username to SSH into image ID",
+      "hidden": true,
+      "label": "Openstack Image Password",
+      "secured": true,
+      "required": true,
+      "immutable": true,
+      "group_name": "virtualmachine",
+      "default": "abc1234"
+    }
+  ],
+  "template_output_params": [
+    {
+      "name": "single-vm-ip",
+      "label": "IP Addresss of Virtual Machine",
+      "description": "The Public IPV4 address",
+      "type": "string",
+      "hidden": false,
+      "secured": false,
+      "group_name": "content_template_output"
+    },
+    {
+      "name": "single-vm-name",
+      "label": "Name of Virtual Machine",
+      "description": "VM Name used during deployment",
+      "type": "string",
+      "hidden": false,
+      "secured": false,
+      "group_name": "content_template_output"
+    }
+  ]
+}
